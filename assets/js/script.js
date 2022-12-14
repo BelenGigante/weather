@@ -28,7 +28,10 @@ btnEl.addEventListener("click", function (event) {
     .then(response => response.json())
     .then(data => {
         for (i=0; i<5;i++){
-            document.getElementById("dailyMin").innerHTML= "Min : " + Number(data.list[i].main.temp_min);
+            minValues.innerHTML= "Min. Temp. : " + Number(data.list[i].main.temp_min);
+            maxValues.innerHTML= "Max. Temp. : " + Number(data.list[i].main.temp_max);
+            document.getElementById("wind").innerHTML= "Wind: " + Number(data.list[i].wind.speed);
+            document.getElementById("humid").innerHTML= "Humidity: " + Number(data.list[i].main.humidity);
         }
         /*console.log(data);
         var nameInfo = data["name"];
