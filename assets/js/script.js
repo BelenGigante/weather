@@ -11,8 +11,8 @@ var currDate = "";
 var hour="";
 
 currDate=(new Date());
-hour= dayjs().hour();
-console.log(hour);
+//hour= dayjs().hour();
+//console.log(hour);
 console.log(currDate);
 
 btnEl.addEventListener("click", function (event) {
@@ -36,11 +36,18 @@ btnEl.addEventListener("click", function (event) {
     .then(data => {
         console.log(data);
         for (i=0; i<5;i++){ 
-
-            document.getElementById("dailyMin").innerHTML= "Min. Temp. : " + Number(data.list[i].main.temp_min);
-            document.getElementById("dailyMax").innerHTML= "Max. Temp. : " + Number(data.list[i].main.temp_max);
-            document.getElementById("wind").innerHTML= "Wind: " + Number(data.list[i].wind.speed);
-            document.getElementById("humid").innerHTML= "Humidity: " + Number(data.list[i].main.humidity);
+            var parentEl = document.getElementById('day' + (i + 1));
+            var minEl =  parentEl.querySelector(".minValues");
+            var maxEl =  parentEl.querySelector(".maxValues");
+            var windEl = parentEl.querySelector(".wind");
+            var humidEl = parentEl.querySelector(".humid");
+            var list = data.list[i];
+            var main = list.main;
+            console.log(parentEl);
+            minEl.textContent = "Min. Temp. : " + main.temp_min;
+            maxEl.textContent = "Max. Temp. : " + main.temp_max;
+            windEl.textContent = "Wind: " + list.wind.speed;
+            humidEl.textContent = "Humidity: " + main.humidity;
         }
      
     })
