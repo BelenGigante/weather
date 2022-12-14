@@ -7,6 +7,13 @@ var desc = document.querySelector(".desc");
 var temp = document.querySelector(".temp");
 var minValues = document.querySelector(".minValues");
 var maxValues = document.querySelector(".maxValues");
+var currDate = "";
+var hour="";
+
+currDate=(new Date());
+hour= dayjs().hour();
+console.log(hour);
+console.log(currDate);
 
 btnEl.addEventListener("click", function (event) {
     event.preventDefault();
