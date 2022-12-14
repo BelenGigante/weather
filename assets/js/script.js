@@ -27,23 +27,15 @@ btnEl.addEventListener("click", function (event) {
     fetch(apiFive)
     .then(response => response.json())
     .then(data => {
-        for (i=0; i<5;i++){
-            minValues.innerHTML= "Min. Temp. : " + Number(data.list[i].main.temp_min);
-            maxValues.innerHTML= "Max. Temp. : " + Number(data.list[i].main.temp_max);
+        console.log(data);
+        for (i=0; i<5;i++){ 
+
+            document.getElementById("dailyMin").innerHTML= "Min. Temp. : " + Number(data.list[i].main.temp_min);
+            document.getElementById("dailyMax").innerHTML= "Max. Temp. : " + Number(data.list[i].main.temp_max);
             document.getElementById("wind").innerHTML= "Wind: " + Number(data.list[i].wind.speed);
             document.getElementById("humid").innerHTML= "Humidity: " + Number(data.list[i].main.humidity);
         }
-        /*console.log(data);
-        var nameInfo = data["name"];
-        var tempInfo = data["main"]["temp"];
-        var tMax = data["main"]["temp_max"];
-        var tMin = data["main"]["temp_min"];
-        var descInfo = data["weather"][0]["description"];
-        cityName.innerHTML = nameInfo;
-        temp.innerHTML = tempInfo;
-        desc.innerHTML = descInfo;
-        minValues.innerHTML = tMin;
-        maxValues.innerHTML = tMax;*/
+     
     })
 
     //.catch(error => alert("wrong city name"))
