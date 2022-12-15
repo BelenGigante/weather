@@ -1,3 +1,20 @@
 .text-center{
     background-color: rgb(57, 52, 154);
+    font-weight: bolder;
+    color: white;
+}
+.icons{
+
+    font-weight: bolder;
+}
+.iconsContainer{
+    justify-content: space-around;
+}
+.all{
+    padding-top: 3%;
+    max-width: 80%;
+    margin: auto;
+}
+.display{
+    font-weight: bold;
 }

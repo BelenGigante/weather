@@ -8,12 +8,30 @@ var temp = document.querySelector(".temp");
 var minValues = document.querySelector(".minValues");
 var maxValues = document.querySelector(".maxValues");
 var dateEl = document.querySelector(".date");
+var btnOldEl= document.querySelector(".btnOld");
 var currDate = "";
 var nameInfo = "";
 var tempInfo = "";
 var descInfo = "";
 var storedIn="";
 var storedOut="";
+var apiInfo = "";
+
+
+//local storage output trial
+
+btnOldEl.addEventListener("click",function(event){
+    event.preventDefault();
+    storedOut = JSON.parse( localStorage.getItem("apiInfo"));
+        cityName.textContent = storedOut["cityName"];
+        dateEl.textContent = storedOut["dateEl"];
+        temp.textContent =  storedOut["temp"] + " F";
+        desc.textContent = storedOut["desc"];
+        console.log(cityName);
+        console.log(temp);
+        console.log(desc);
+        console.log(dateEl);
+})
 
 currDate=(new Date().toDateString());
 console.log(currDate);
@@ -34,7 +52,15 @@ btnEl.addEventListener("click", function (event) {
         temp.textContent = tempInfo + " F";
         desc.textContent = descInfo;
         dateEl.textContent=currDate;
-        storedIn = localStorage.setItem(api, JSON.stringify(data));
+        btnOldEl.textContent= nameInfo;
+        //local storage input trial
+         apiInfo = {
+            cityName : nameInfo,
+            temp : tempInfo,
+            desc : descInfo,
+            dateEl : currDate,
+        }
+        storedIn = localStorage.setItem("apiInfo", JSON.stringify(apiInfo));
     })
     var apiFive = "http://api.openweathermap.org/data/2.5/forecast?q=" + typeCityEl.value + "&appid=51007bcd6af627372cf7b54eb1273ace&units=imperial";
     fetch(apiFive)
@@ -57,11 +83,10 @@ btnEl.addEventListener("click", function (event) {
             windEl.textContent = "Wind: " + list.wind.speed + " /mph.";
             humidEl.textContent = "Humidity: " + main.humidity;
             iconEl.src="http://openweathermap.org/img/wn/" + list.weather[0].icon +  ".png";
-
+            parentEl.style.backgroundColor = "gray";
         }
      
     })
 
     .catch(error => alert("wrong city name"))
 })
-//local storage
