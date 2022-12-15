@@ -41,13 +41,15 @@ btnEl.addEventListener("click", function (event) {
             var maxEl =  parentEl.querySelector(".maxValues");
             var windEl = parentEl.querySelector(".wind");
             var humidEl = parentEl.querySelector(".humid");
+            var iconEl = parentEl.querySelector(".imgClass")
             var list = data.list[i];
             var main = list.main;
             console.log(parentEl);
-            minEl.textContent = "Min. Temp. : " + main.temp_min;
-            maxEl.textContent = "Max. Temp. : " + main.temp_max;
-            windEl.textContent = "Wind: " + list.wind.speed;
+            minEl.textContent = "Min. Temp. : " + main.temp_min + " F";
+            maxEl.textContent = "Max. Temp. : " + main.temp_max + " F";
+            windEl.textContent = "Wind: " + list.wind.speed + " /mph.";
             humidEl.textContent = "Humidity: " + main.humidity;
+            iconEl.src="http://openweathermap.org/img/wn/" + list.weather[0].icon +  ".png";
         }
      
     })
