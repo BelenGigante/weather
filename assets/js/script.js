@@ -7,12 +7,11 @@ var desc = document.querySelector(".desc");
 var temp = document.querySelector(".temp");
 var minValues = document.querySelector(".minValues");
 var maxValues = document.querySelector(".maxValues");
+var dateEl = document.querySelector(".date");
 var currDate = "";
-var hour="";
 
-currDate=(new Date());
-//hour= dayjs().hour();
-//console.log(hour);
+
+currDate=(new Date().toDateString());
 console.log(currDate);
 
 btnEl.addEventListener("click", function (event) {
@@ -25,10 +24,11 @@ btnEl.addEventListener("click", function (event) {
         var nameInfo = data["name"];
         var tempInfo = data["main"]["temp"];
         var descInfo = data["weather"][0]["description"];
-        cityName.innerHTML = nameInfo;
-        temp.innerHTML = tempInfo;
-        desc.innerHTML = descInfo;
-
+        cityName.textContent = nameInfo;
+        temp.textContent = tempInfo;
+        desc.textContent = descInfo;
+        dateEl.textContent=currDate;
+        
     })
     var apiFive = "http://api.openweathermap.org/data/2.5/forecast?q=" + typeCityEl.value + "&appid=51007bcd6af627372cf7b54eb1273ace&units=imperial";
     fetch(apiFive)
@@ -41,10 +41,11 @@ btnEl.addEventListener("click", function (event) {
             var maxEl =  parentEl.querySelector(".maxValues");
             var windEl = parentEl.querySelector(".wind");
             var humidEl = parentEl.querySelector(".humid");
-            var iconEl = parentEl.querySelector(".imgClass")
+            var iconEl = parentEl.querySelector(".imgClass");
+            var descriptionEl = parentEl.querySelector(".description");
             var list = data.list[i];
             var main = list.main;
-            console.log(parentEl);
+            descriptionEl.textContent = list.weather[0].description;
             minEl.textContent = "Min. Temp. : " + main.temp_min + " F";
             maxEl.textContent = "Max. Temp. : " + main.temp_max + " F";
             windEl.textContent = "Wind: " + list.wind.speed + " /mph.";
