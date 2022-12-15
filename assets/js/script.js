@@ -9,6 +9,7 @@ var minValues = document.querySelector(".minValues");
 var maxValues = document.querySelector(".maxValues");
 var dateEl = document.querySelector(".date");
 var btnOldEl= document.querySelector(".btnOld");
+var fiveDayEl= document.querySelector(".fiveDayTitle");
 var currDate = "";
 var nameInfo = "";
 var tempInfo = "";
@@ -31,6 +32,8 @@ btnOldEl.addEventListener("click",function(event){
         console.log(temp);
         console.log(desc);
         console.log(dateEl);
+        typeCityEl.value = storedOut["cityName"];
+        btnEl.textContent = "Click For Current Weather";
 })
 
 currDate=(new Date().toDateString());
@@ -48,6 +51,7 @@ btnEl.addEventListener("click", function (event) {
         nameInfo = data["name"];
         tempInfo = data["main"]["temp"];
         descInfo = data["weather"][0]["description"];
+        fiveDayEl.textContent = "Five Day Forecast";
         cityName.textContent = nameInfo;
         temp.textContent = tempInfo + " F";
         desc.textContent = descInfo;
