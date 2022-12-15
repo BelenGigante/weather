@@ -31,7 +31,7 @@ btnEl.addEventListener("click", function (event) {
         tempInfo = data["main"]["temp"];
         descInfo = data["weather"][0]["description"];
         cityName.textContent = nameInfo;
-        temp.textContent = tempInfo;
+        temp.textContent = tempInfo + " F";
         desc.textContent = descInfo;
         dateEl.textContent=currDate;
         storedIn = localStorage.setItem(api, JSON.stringify(data));

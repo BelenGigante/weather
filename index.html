@@ -24,7 +24,17 @@
                 <form id="form">
                     <label for="typeCity"></label>
                     <input class="inputValue" type="text" autofocus="true">
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <div class="m-2">
+                    <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                    </div>
+                    <aside>
+                        <div class="display border border-dark m-4 p-4">
+                            <h1 class="name"></h1>
+                            <p class="date"></p>
+                            <p class="desc"></p>
+                            <p class="temp"></p>
+                        </div>
+                    </aside>
                 </form>
             </div>
             <div class="m-5">
@@ -43,21 +53,16 @@
                 </div>
             </div>
         </div>
-        <div class="display">
-            <h1 class="name"></h1>
-            <p class="date"></p>
-            <p class="desc"></p>
-            <p class="temp"></p>
-        </div>
+     
         <div>
-            <h1 id="fiveDays">Five Day Forecast</h1>
+            <h1 class="m-5">Five Day Forecast</h1>
         </div>
 
-        <div>
-            <div class="iconsContainer">
-                <div class="icons" id="day1">
+        <div class=" m-5">
+            <div class="iconsContainer d-flex ">
+                <div class="icons px-5" id="day1">
                     <p class="weather"></p>
-                    <div class="image">
+                    <div class="image px-5">
                         <img src="https://via.placeholder.com/70" alt="" class="imgClass">
                     </div>
                     <p class="date"></p>
@@ -67,9 +72,9 @@
                     <p class="wind"> </p>
                     <p class="humid"> </p>
                 </div>
-                <div class="icons" id="day2">
+                <div class="icons px-5" id="day2">
                     <p class="weather"></p>
-                    <div class="image">
+                    <div class="image px-5">
                         <img src="https://via.placeholder.com/70" alt="" class="imgClass">
                     </div>
                     <p class="date"></p>
@@ -80,9 +85,9 @@
                     <p class="humid"> </p>
                 </div>
 
-                <div class="icons" id="day3">
+                <div class="icons px-5" id="day3">
                     <p class="weather"></p>
-                    <div class="image">
+                    <div class="image px-5">
                         <img src="https://via.placeholder.com/70" alt="" class="imgClass">
                     </div>
                     <p class="date"></p>
@@ -92,9 +97,9 @@
                     <p class="wind"> </p>
                     <p class="humid"> </p>
                 </div>
-                <div class="icons" id="day4">
+                <div class="icons px-5" id="day4">
                     <p class="weather"></p>
-                    <div class="image">
+                    <div class="image px-5">
                         <img src="https://via.placeholder.com/70" alt="" class="imgClass">
                     </div>
                     <p class="date"></p>
@@ -104,9 +109,9 @@
                     <p class="wind"> </p>
                     <p class="humid"> </p>
                 </div>
-                <div class="icons" id="day5">
+                <div class="icons px-5" id="day5">
                     <p class="weather"></p>
-                    <div class="image">
+                    <div class="image px-5">
                         <img src="https://via.placeholder.com/70" alt="" class="imgClass">
                     </div>
                     <p class="date"></p>
@@ -119,6 +124,7 @@
 
             </div>
         </div>
+    
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
