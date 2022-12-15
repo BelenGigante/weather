@@ -9,26 +9,32 @@ var minValues = document.querySelector(".minValues");
 var maxValues = document.querySelector(".maxValues");
 var dateEl = document.querySelector(".date");
 var currDate = "";
-
+var nameInfo = "";
+var tempInfo = "";
+var descInfo = "";
+var storedIn="";
+var storedOut="";
 
 currDate=(new Date().toDateString());
 console.log(currDate);
 
 btnEl.addEventListener("click", function (event) {
+    
     event.preventDefault();
+    
     var api = "http://api.openweathermap.org/data/2.5/weather?q=" + typeCityEl.value + "&appid=51007bcd6af627372cf7b54eb1273ace&units=imperial";
     fetch(api)
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        var nameInfo = data["name"];
-        var tempInfo = data["main"]["temp"];
-        var descInfo = data["weather"][0]["description"];
+        nameInfo = data["name"];
+        tempInfo = data["main"]["temp"];
+        descInfo = data["weather"][0]["description"];
         cityName.textContent = nameInfo;
         temp.textContent = tempInfo;
         desc.textContent = descInfo;
         dateEl.textContent=currDate;
-        
+        storedIn = localStorage.setItem(api, JSON.stringify(data));
     })
     var apiFive = "http://api.openweathermap.org/data/2.5/forecast?q=" + typeCityEl.value + "&appid=51007bcd6af627372cf7b54eb1273ace&units=imperial";
     fetch(apiFive)
@@ -51,9 +57,11 @@ btnEl.addEventListener("click", function (event) {
             windEl.textContent = "Wind: " + list.wind.speed + " /mph.";
             humidEl.textContent = "Humidity: " + main.humidity;
             iconEl.src="http://openweathermap.org/img/wn/" + list.weather[0].icon +  ".png";
+
         }
      
     })
 
-    //.catch(error => alert("wrong city name"))
+    .catch(error => alert("wrong city name"))
 })
+//local storage
