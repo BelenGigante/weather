@@ -19,10 +19,10 @@ var apiInfo = "";
 
 
 //local storage output trial
-
+storedOut = JSON.parse( localStorage.getItem("apiInfo"));
+btnOldEl.textContent = storedOut["cityName"];
 btnOldEl.addEventListener("click",function(event){
     event.preventDefault();
-    storedOut = JSON.parse( localStorage.getItem("apiInfo"));
         cityName.textContent = storedOut["cityName"];
         dateEl.textContent = storedOut["dateEl"];
         temp.textContent =  storedOut["temp"] + " F";
@@ -55,6 +55,7 @@ btnEl.addEventListener("click", function (event) {
         btnOldEl.textContent= nameInfo;
         //local storage input trial
          apiInfo = {
+            btnOldEl : nameInfo,
             cityName : nameInfo,
             temp : tempInfo,
             desc : descInfo,
