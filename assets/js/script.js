@@ -20,7 +20,7 @@ var apiInfo = "";
 
 
 //local storage output trial
-storedOut = JSON.parse( localStorage.getItem("apiInfo"));
+storedOut = JSON.parse( localStorage.getItem("apiInfo")) || [];
 btnOldEl.textContent = storedOut["cityName"];
 btnOldEl.addEventListener("click",function(event){
     event.preventDefault();
