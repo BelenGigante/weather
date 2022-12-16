@@ -17,7 +17,10 @@ The site includes a button that stores the last searched city name, date of sear
 ## Visuals
 
 ![](./assets/images/weather-main.png)
+
 ![](./assets/images/current-weather.png)
+
 ![](./assets/images/5day.png)
+
 ![](./assets/images/weatherLS.png)
 
