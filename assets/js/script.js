@@ -39,7 +39,7 @@ btnEl.addEventListener("click", function (event) {
     
     event.preventDefault();
     
-    var api = "http://api.openweathermap.org/data/2.5/weather?q=" + typeCityEl.value + "&appid=51007bcd6af627372cf7b54eb1273ace&units=imperial";
+    var api = "https://api.openweathermap.org/data/2.5/weather?q=" + typeCityEl.value + "&appid=51007bcd6af627372cf7b54eb1273ace&units=imperial";
     fetch(api)
     .then(response => response.json())
     .then(data => {
@@ -63,7 +63,7 @@ btnEl.addEventListener("click", function (event) {
         }
         storedIn = localStorage.setItem("apiInfo", JSON.stringify(apiInfo));
     })
-    var apiFive = "http://api.openweathermap.org/data/2.5/forecast?q=" + typeCityEl.value + "&appid=51007bcd6af627372cf7b54eb1273ace&units=imperial";
+    var apiFive = "https://api.openweathermap.org/data/2.5/forecast?q=" + typeCityEl.value + "&appid=51007bcd6af627372cf7b54eb1273ace&units=imperial";
     fetch(apiFive)
     .then(response => response.json())
     .then(data => {
@@ -85,7 +85,7 @@ btnEl.addEventListener("click", function (event) {
                 maxEl.textContent = "Max. Temp. : " + main.temp_max + " F";
                 windEl.textContent = "Wind: " + list.wind.speed + " /mph.";
                 humidEl.textContent = "Humidity: " + main.humidity;
-                iconEl.src="http://openweathermap.org/img/wn/" + list.weather[0].icon +  ".png";
+                iconEl.src="https://openweathermap.org/img/wn/" + list.weather[0].icon +  ".png";
                 parentEl.style.backgroundColor = "gray";
             }
             }
