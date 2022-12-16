@@ -28,10 +28,6 @@ btnOldEl.addEventListener("click",function(event){
         dateEl.textContent = "Last searched on "+ storedOut["dateEl"];
         temp.textContent =  storedOut["temp"] + " F";
         desc.textContent = storedOut["desc"];
-        console.log(cityName);
-        console.log(temp);
-        console.log(desc);
-        console.log(dateEl);
         typeCityEl.value = storedOut["cityName"];
         btnEl.textContent = "Click For Current Weather";
 })
@@ -74,7 +70,6 @@ btnEl.addEventListener("click", function (event) {
         console.log(data);
         for (j=0;j<40;j++){
             if (j===8 || j===16 || j===24 || j===32 || j===40){
-                console.log(j);
             for (i=0; i<5;i++){ 
                 var parentEl = document.getElementById('day' + (i + 1));
                 var minEl =  parentEl.querySelector(".minValues");
