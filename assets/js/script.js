@@ -25,7 +25,7 @@ btnOldEl.textContent = storedOut["cityName"];
 btnOldEl.addEventListener("click",function(event){
     event.preventDefault();
         cityName.textContent = storedOut["cityName"];
-        dateEl.textContent = storedOut["dateEl"];
+        dateEl.textContent = "Last searched on "+ storedOut["dateEl"];
         temp.textContent =  storedOut["temp"] + " F";
         desc.textContent = storedOut["desc"];
         console.log(cityName);
@@ -72,24 +72,30 @@ btnEl.addEventListener("click", function (event) {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        for (i=0; i<5;i++){ 
-            var parentEl = document.getElementById('day' + (i + 1));
-            var minEl =  parentEl.querySelector(".minValues");
-            var maxEl =  parentEl.querySelector(".maxValues");
-            var windEl = parentEl.querySelector(".wind");
-            var humidEl = parentEl.querySelector(".humid");
-            var iconEl = parentEl.querySelector(".imgClass");
-            var descriptionEl = parentEl.querySelector(".description");
-            var list = data.list[i];
-            var main = list.main;
-            descriptionEl.textContent = list.weather[0].description;
-            minEl.textContent = "Min. Temp. : " + main.temp_min + " F";
-            maxEl.textContent = "Max. Temp. : " + main.temp_max + " F";
-            windEl.textContent = "Wind: " + list.wind.speed + " /mph.";
-            humidEl.textContent = "Humidity: " + main.humidity;
-            iconEl.src="http://openweathermap.org/img/wn/" + list.weather[0].icon +  ".png";
-            parentEl.style.backgroundColor = "gray";
+        for (j=0;j<40;j++){
+            if (j===8 || j===16 || j===24 || j===32 || j===40){
+                console.log(j);
+            for (i=0; i<5;i++){ 
+                var parentEl = document.getElementById('day' + (i + 1));
+                var minEl =  parentEl.querySelector(".minValues");
+                var maxEl =  parentEl.querySelector(".maxValues");
+                var windEl = parentEl.querySelector(".wind");
+                var humidEl = parentEl.querySelector(".humid");
+                var iconEl = parentEl.querySelector(".imgClass");
+                var descriptionEl = parentEl.querySelector(".description");
+                var list = data.list[i];
+                var main = list.main;
+                descriptionEl.textContent = list.weather[0].description;
+                minEl.textContent = "Min. Temp. : " + main.temp_min + " F";
+                maxEl.textContent = "Max. Temp. : " + main.temp_max + " F";
+                windEl.textContent = "Wind: " + list.wind.speed + " /mph.";
+                humidEl.textContent = "Humidity: " + main.humidity;
+                iconEl.src="http://openweathermap.org/img/wn/" + list.weather[0].icon +  ".png";
+                parentEl.style.backgroundColor = "gray";
+            }
+            }
         }
+       
      
     })
 
